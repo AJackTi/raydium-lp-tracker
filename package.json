@@ -2,9 +2,8 @@
   "name": "raydium-lp-tracker",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "BSD-3-Clause",
   "scripts": {
-    "dev": "ts-node app.ts"
+    "dev": "node index.js"
   },
   "dependencies": {
     "@metaplex-foundation/js": "^0.20.1",
