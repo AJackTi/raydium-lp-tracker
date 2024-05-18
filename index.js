@@ -53,7 +53,7 @@ async function fetchRaydiumAccounts(txId, connection) {
 
   // Extract token amounts from transaction details
   const tokenTransfers = tx.meta.postTokenBalances;
-  console.log("Token Transfers:", tokenTransfers);
+  // console.log("Token Transfers:", tokenTransfers);
 
   const tokenAIndex = 8;
   const tokenBIndex = 9;
@@ -63,7 +63,10 @@ async function fetchRaydiumAccounts(txId, connection) {
 
   let tokenAAmount = 0;
   for (const element of tokenTransfers) {
-    if (element.mint === tokenAAccount.toBase58()) {
+    if (
+      element.mint === tokenAAccount.toBase58() &&
+      element.owner === "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+    ) {
       tokenAAmount = element.uiTokenAmount.uiAmount;
       break;
     }
@@ -71,7 +74,10 @@ async function fetchRaydiumAccounts(txId, connection) {
 
   let tokenBAmount = 0;
   for (const element of tokenTransfers) {
-    if (element.mint === tokenBAccount.toBase58()) {
+    if (
+      element.mint === tokenBAccount.toBase58() &&
+      element.owner === "5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1"
+    ) {
       tokenBAmount = element.uiTokenAmount.uiAmount;
       break;
     }
